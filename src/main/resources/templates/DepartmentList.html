@@ -1,0 +1,85 @@
+
+       
+	    <body class="sb-nav-fixed m-2">
+	    
+	      <th:block th:insert="Header.html">
+	            
+	            </th:block>
+	 
+	        <div id="layoutSidenav">
+	            
+	            <th:block th:insert="SideBar.html">
+	            
+	            </th:block>
+	            
+	            
+	            <div id="layoutSidenav_content"></div>
+	                <main>
+	                
+	<div class="container-fluid"></div>
+
+<div class="container-fluid"> 
+ 	<div class="card">
+ 		<div class="card-header bg-primary text-center "><h3>Department List</h3></div>
+ 		
+ 		 <div class="card-body">
+ 		 	
+ 		 	<div> <a href = "/deptList"><input type = "submit" value = "Add New" class = "btn btn-success"></input> </a>
+ 		  	
+ 		  	     </div>
+ 		 
+ 		             <table class="table table-success table-striped" id="myTable">
+ 		             
+ 		            	 <thead>
+ 		             		<tr>
+ 		             
+ 		             			<th>Department Name</th>
+ 		             			<th>Department Head</th>
+ 		             			<th>Department Phone</th>
+ 		             			<th>Action</th>
+ 		            	 	</tr>
+ 		             
+ 		            	 </thead>
+ 		            	 <tbody>
+ 		            	 		<tr th:each="dpt: ${dlist}"> 
+ 		             
+ 		             				<td>[[${dpt.dept_name}]]</td>
+ 		             				<td>[[${dpt.dept_hod}]]</td>
+ 		             				<td>[[${dpt.dept_phone}]]</td>
+ 		  
+ 		             				<td>
+ 		             				
+ 		             				<a th:href = "@{'/edit/'+${dpt.id}}"><input type="submit" value ="Edit" class = "btn btn-success"></a>
+ 		             				<a th:href = "@{/delete(id=${dpt.id})}"><input type="submit" value ="Delete" class = "btn btn-danger"></a>
+ 		             				
+ 		             				</td>
+ 		             				
+ 		             				
+ 		             			
+ 		            	 		</tr>
+ 		            	 
+ 		            	 </tbody>
+ 		            	 
+ 		             
+ 		             </table>
+ 		 </div>
+ 		
+ 		<div class="card-footer bg-warning text-center"><h6>Copyrigth@2023 </h6></div>
+ 	
+ 	</div>
+
+ </div>
+ <script type="text/javascript">
+					$(document).ready( function () {
+					    $('#myTable').DataTable();} );
+					
+					</script>
+
+</body>
+</html>
+</head>
+
+
+
+
+

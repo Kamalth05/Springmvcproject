@@ -1,0 +1,110 @@
+
+<body class="sb-nav-fixed m-2">
+
+	<th:block th:insert="Header.html">
+
+	</th:block>
+
+	<div id="layoutSidenav">
+
+		<th:block th:insert="SideBar.html">
+
+		</th:block>
+</div>
+
+		<div id="layoutSidenav_content"></div>
+			<main>
+
+				<div class="container-fluid"></div>
+
+					<div class="container-fluid">
+						<div class="card">
+							<div class="card-header bg-primary text-center ">
+								<h3>Employee List</h3>
+							</div>
+							
+							
+							<div class="card-body">
+
+								<div>
+									
+
+								</div>
+
+								<table class="table table-success table-striped" id="empTable">
+
+									<thead>
+										<tr>
+
+											<th>First Name</th>
+											<th>Last Name</th>
+											<th>Gender</th>
+											<th>Company</th>
+											<th>Department</th>
+											<th>Country</th>
+											<th>State</th>
+											<th>Action</th>
+											
+										</tr>
+
+									</thead>
+									<tbody>
+
+
+
+										<tr th:each="emps:${empList}">
+											<td>[[${emps.fname}]]</td>
+											<td>[[${emps.lname}]]</td>
+											<td>[[${emps.gender}]]</td>
+											<td>[[${emps.company}]]</td>
+											<td>[[${emps.department.dept_name}]]</td>
+											<td>[[${emps.address.country}]]</td>
+											<td>[[${emps.address.state}]]</td>
+											<td>
+											<a th:href="@{'/editemployee/'+${emps.id}}"><input type="submit" value="edit" class="btn btn-primary"></a>
+											<a th:href="@{'/deleteemployee/'+${emps.id}}"><input type="submit" value="delete" class="btn btn-danger"></a>
+											</td>
+											
+											
+											
+										</tr>
+										
+
+									</tbody>
+
+
+								</table>
+							</div>
+							
+							<div class="text-center m-2"  >
+							
+							<a href="excel"  ><input type="submit" value="EXCEL"></a>
+							
+							</div>
+							
+							<div class="text-center m-2"  >
+							
+							<a href="pdf"  ><input type="submit" value="PDF"></a>
+							
+							</div>
+							
+
+							<div class="card-footer bg-warning text-center">
+								<h6>Copyrigth@2023</h6>
+							</div>
+
+						</div>
+
+					</div>
+					
+					<script type="text/javascript">
+					$(document).ready( function () {
+					    $('#empTable').DataTable();} );
+					
+					</script>
+</body>
+
+
+
+
+

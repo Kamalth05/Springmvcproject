@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org ">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Page</title>
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</head>
+<body>
+
+
+<hr>
+
+<div class="container-fluid"> 
+ 	<div class="card">
+ 		<div class="card-header bg-primary text-center "><h3>Employee Form</h3></div>
+ 		
+ 		 <div class="card-body">
+ 		 
+ 		 <form action="/addEmployee" method="post">
+ 		 	
+ 		 	<div class="row m-2">
+ 		 		<div class="col-4"> First Name</div>
+ 		 		<div class="col-6">
+ 		 			<input type = "text" name="fname" placeholder = "enter first name" class ="form-control" >
+ 		 	</div>
+ 		 	</div>
+ 		 	
+ 		 	<div class="row m-2">
+ 		 		<div class="col-4">Last Name</div>
+ 		 		<div class="col-6">
+ 		 			<input type = "text" name="lname" placeholder = "enter last name" class ="form-control" >
+ 		 	</div>
+ 		 	</div>
+ 		 	
+ 		 	<div class="row m-2">
+ 		 		<div class="col-4">Gender</div>
+ 		 		<div class="col-6">
+ 		 			<input type = "radio" name="gender" value="Male">Male
+ 		 			<input type = "radio" name="gender" value="Female">Female
+ 		 			<input type = "radio" name="gender" value="Transgender">Transgender
+ 		 	</div>
+ 		
+ 		 	</div>
+ 		 	
+ 		 	<div class="row m-2">
+ 		 		<div class="col-4">Phone Number</div>
+ 		 		<div class="col-6">
+ 		 			<input type = "text" name="phone" placeholder = "enter phone" class ="form-control" >
+ 		 	</div>
+ 		 	</div>
+ 		 	
+ 		 	<div class="row m-2">
+ 		 		<div class="col-4">Email</div>
+ 		 		<div class="col-6">
+ 		 			<input type = "text" name="email" placeholder = "enter email" class ="form-control" >
+ 		 	</div>
+ 		 	</div>
+ 		 	
+ 		 	
+ 		 	<div class="row m-2">
+ 		 		<div class="col-4">Age</div>
+ 		 		<div class="col-6">
+ 		 			<input type = "number" name="age" placeholder = "enter age" class ="form-control" >
+ 		 	</div>
+ 		 	</div>
+ 		 	
+ 		 	
+ 		 	
+ 		 	<div class="row m-2">
+ 		 		<div class="col-4">DOB</div>
+ 		 		<div class="col-6">
+ 		 			<input type = "date" name="dob" placeholder = "enter dob" class ="form-control" >
+ 		 	</div>
+ 		 	</div>
+ 		 	
+ 		 	
+ 		 	
+ 		 	<div class="row m-2">
+ 		 		<div class="col-4">Company</div>
+ 		 		<div class="col-6">
+ 		 			<input type = "text" name="company" placeholder = "enter company" class ="form-control" >
+ 		 	</div>
+ 		 	</div>
+ 		 	
+ 		 	
+ 		 	
+ 		 	<div class="row m-2">
+ 		 		<div class="col-4">Post</div>
+ 		 		<div class="col-6">
+ 		 			<input type = "text" name="post" placeholder = "enter post" class ="form-control" >
+ 		 	</div>
+ 		 	</div>
+ 		 	<div class="row m-2">
+ 		 		<div class="col-4">Salary</div>
+ 		 		<div class="col-6">
+ 		 			<input type = "number" name="salary" placeholder = "enter salary" class ="form-control" >
+ 		 	</div>
+ 		 	</div>
+ 		 	<div class="row m-2">
+ 		 		<div class="col-4">Department</div>
+ 		 		<div class="col-6">
+ 		 			<select name="department" class="form-select">
+ 		 			<option value="">Select</option>
+ 		 			<option th:each="department:${deptList}" th:value="${department.id}" >[[${department.dept_name}]]</option>
+ 		 			
+ 		 			</select>
+ 		 	</div>
+ 		 	</div>
+ 		 	
+ 		 	
+ 		 	 		 	<div class="row m-2">
+ 		 		<div class="col-4">Projects</div>
+ 		 		<div class="col-6">
+ 		 			<input type = "checkbox" name="project" value = "project-1" >Project_1
+ 		 			<input type = "checkbox" name="project" value = "project-2" >Project_2
+ 		 			<input type = "checkbox" name="project" value = "project-3" >Project_3
+ 		 			<input type = "checkbox" name="project" value = "project-4" >Project_4
+ 		 			<input type = "checkbox" name="project" value = "project-5" >Project_5
+ 		 			<input type = "checkbox" name="project" value = "project-5" >Project_6
+ 		 			<input type = "checkbox" name="project" value = "project-7" >Project_7
+ 		 	</div>
+ 		 	</div>
+ 		 	
+ 		 	
+ 		 	 		 	<div class="row m-2">
+ 		 		<div class="col-4">Country</div>
+ 		 		<div class="col-6">
+ 		 			<input type = "text" name="address.country" placeholder = "enter country" class ="form-control" >
+ 		 	</div>
+ 		 	</div>
+ 		 	
+ 		 	
+ 		 	
+ 		 	 		 	<div class="row m-2">
+ 		 		<div class="col-4">City</div>
+ 		 		<div class="col-6">
+ 		 			<input type = "text" name="address.city" placeholder = "enter city" class ="form-control" >
+ 		 	</div>
+ 		 	</div>
+ 		 	
+ 		 	
+ 		 	
+ 		 	 		 	
+ 		 	 	<div class="row m-2">
+ 		 		<div class="col-4">State</div>
+ 		 		<div class="col-6">
+ 		 			<select class = "form-select" name = "address.state">
+ 		 				<option value = "" >Select</option>
+ 		 					<option value = "state-1" >State-1</option>
+ 		 						<option value = "state-2" >State-2</option>
+ 		 							<option value = "state-3" >State-3</option>
+ 		 						<option value = "state-4" >State-4</option>
+ 		 					<option value = "state-5" >State-5</option>
+ 		 				<option value = "state-5" >State-6</option>
+ 		 			<option value = "state-5" >State-7</option>
+ 		 			
+ 		 			</select>
+ 		 	</div>
+ 		 	</div >
+ 		 	
+ 		 	<div class="row m-2">
+ 		 		<div class="col-4">Zipcode</div>
+ 		 		<div class="col-6">
+ 		 			<input type = "text" name="address.zipcode" placeholder = "enter zipcode" class ="form-control" >
+ 		 	</div>
+ 		 		
+ 		 	</div>
+ 		 	
+ 		 	<div class="row m-2">
+ 		 		<div class="col-4"></div>
+ 		 		<div class="col-6">
+ 		 		 		 	<input type="submit" value="ADD" class="btn btn-success">
+ 		 		
+ 		 		</div>
+ 		 		
+ 		 	</div>
+ 		 	
+ 		 	
+ 	     </form>
+ 		 </div>
+ 		 
+ 		 
+ 		<div class="card-footer bg-warning text-center"><h6>Copyright@2023 </h6></div>
+ 	
+ 	</div>
+ 	
+ 	</div>
+ 
+
+</body>
+</html>
